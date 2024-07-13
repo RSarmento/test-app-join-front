@@ -1,0 +1,35 @@
+<h2 mat-dialog-title>Favorite Animal</h2>
+<mat-dialog-content>
+  My favorite animal is:
+  <ul>
+    <li>
+      <span>{{ data.name }}</span>
+    </li>
+    <li>
+      <span>{{ data.description }}</span>
+    </li>
+    <li>
+      <span>{{ data.price }}</span>
+    </li>
+    <li>
+      <span>{{ data.category.name }}</span>
+    </li>
+  </ul>
+
+  <section>
+    <div class="example-label">FAB</div>
+    <div class="example-button-row">
+      <div class="example-flex-container">
+        <div class="example-button-container">
+          <button
+            mat-fab
+            aria-label="Example icon button with a delete icon"
+            (click)="deleteProduct()"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</mat-dialog-content>
