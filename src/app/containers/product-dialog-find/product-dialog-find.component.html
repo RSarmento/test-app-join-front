@@ -1,0 +1,18 @@
+<div>
+  <app-product-find (submitForm)="findProduct($event)"> </app-product-find>
+  @if(productDetail) {
+  <div>
+    <mat-list role="list">
+      <mat-list-item role="listitem">{{ productDetail.id }}</mat-list-item>
+      <mat-list-item role="listitem">{{ productDetail.name }}</mat-list-item>
+      <mat-list-item role="listitem">{{
+        productDetail.description
+      }}</mat-list-item>
+      <mat-list-item role="listitem">{{ productDetail.price }}</mat-list-item>
+      <mat-list-item role="listitem">{{
+        productDetail.category.name
+      }}</mat-list-item>
+    </mat-list>
+  </div>
+  }
+</div>
