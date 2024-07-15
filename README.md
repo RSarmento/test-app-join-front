@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## FrontEnd Usage
 
-To login use the credentials user and 1 as user name and password respectively. To save a new product click the save icon and fill the form, to search insert an id, to edit and delete click a row in the main table and change the data or click the delete button.
+To login use the credentials user and 1 as user name and password respectively. To save a new product click the save icon and fill the form, to search press the search icon and insert an id, to edit and delete click a row in the main table and change the data or click the delete button.
 
 ## Development server
 
