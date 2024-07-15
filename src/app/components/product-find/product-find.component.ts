@@ -32,7 +32,6 @@ export class ProductFindComponent {
   constructor(private formBuilder: FormBuilder, public dialog: MatDialog) {}
 
   findProduct() {
-    console.log(this.productForm.value.id);
     this.submitForm.emit(this.productForm.value.id);
   }
 }

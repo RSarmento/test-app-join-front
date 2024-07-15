@@ -31,7 +31,6 @@ export class ProductDialogCreateComponent {
   ) {}
   createProduct(product: Product) {
     this.productService.save(product).subscribe((resp) => {
-      console.log(resp);
       this.dialogRef.close();
     });
   }

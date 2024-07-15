@@ -37,7 +37,6 @@ export class ProductFormComponent implements OnInit {
     this.setFormValues();
   }
   submitProduct() {
-    console.log(this.productForm);
     const product = {
       id: this.productData?.id,
       name: this.productForm.get('name')?.value,

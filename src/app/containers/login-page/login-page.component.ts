@@ -16,7 +16,6 @@ export class LoginPageComponent {
     this.loginService
       .login(event.userName, event.password)
       .subscribe((resp) => {
-        console.log(resp);
         sessionStorage.setItem('token', '1');
         this.router.navigate(['/product']);
       });
