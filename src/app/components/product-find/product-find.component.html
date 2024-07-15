@@ -1,0 +1,9 @@
+<section>
+  <form class="example-form" [formGroup]="productForm">
+    <mat-form-field class="example-full-width">
+      <mat-label>id</mat-label>
+      <input matInput placeholder="id" formControlName="id" type="number" />
+    </mat-form-field>
+    <button mat-flat-button (click)="findProduct()">Enter</button>
+  </form>
+</section>

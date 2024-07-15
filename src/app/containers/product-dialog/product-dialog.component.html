@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>Selected Product Options</h2>
+<mat-dialog-content>
+  <app-product-form [productData]="product" (submitForm)="editProduct($event)">
+  </app-product-form>
+  <section>
+    <div class="example-label">Delete</div>
+    <div class="example-button-row">
+      <div class="example-flex-container">
+        <div class="example-button-container">
+          <button delete (click)="deleteProduct()">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</mat-dialog-content>
