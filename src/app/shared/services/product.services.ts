@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { map, Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Product } from '../models/product.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -16,15 +17,15 @@ export class ProductService {
       .pipe(map((element: any) => element?.content));
   }
   get(id: number): Observable<any> {
-    return this.httpClient.get(`${this.url}/id`);
+    return this.httpClient.get(`${this.url}/${id}`);
   }
-  save(): Observable<any> {
-    return this.httpClient.post(this.url, '');
+  save(product: Product): Observable<any> {
+    return this.httpClient.post(this.url, product);
   }
-  update(): Observable<any> {
-    return this.httpClient.put(this.url, '');
+  update(product: Product): Observable<any> {
+    return this.httpClient.put(`${this.url}/${product.id}`, product);
   }
-  delete(id: number): Observable<any> {
-    return this.httpClient.delete(`${this.url}/id`);
+  delete(id?: number): Observable<any> {
+    return this.httpClient.delete(`${this.url}/${id}`);
   }
 }

@@ -1,4 +1,23 @@
-<app-product-list
-  [productItems]="productItems"
-  (selectedProduct)="selectedProductDialog($event)"
-></app-product-list>
+<div class="action-buttons">
+  <div>
+    <button (click)="createProduct()">
+      <mat-icon>save</mat-icon>
+    </button>
+  </div>
+  <div>
+    <button (click)="findProduct()">
+      <mat-icon>search</mat-icon>
+    </button>
+  </div>
+  <div>
+    <button (click)="index($event)">
+      <mat-icon>update</mat-icon>
+    </button>
+  </div>
+</div>
+<div>
+  <app-product-list
+    [productItems]="productItems"
+    (selectedProduct)="selectedProductDialog($event)"
+  ></app-product-list>
+</div>

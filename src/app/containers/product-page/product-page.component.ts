@@ -4,8 +4,11 @@ import { ProductFormComponent } from '../../components/product-form/product-form
 import { HeaderComponent } from '../../components/header/header.component';
 import { ProductListComponent } from '../../components/product-list/product-list.component';
 import { Product } from '../../shared/models/product.interface';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ProductDialogComponent } from '../product-dialog/product-dialog.component';
+import { MatIconModule } from '@angular/material/icon';
+import { ProductDialogCreateComponent } from '../product-dialog-create/product-dialog-create.component';
+import { ProductDialogFindComponent } from '../product-dialog-find/product-dialog-find.component';
 
 @Component({
   selector: 'app-product-page',
@@ -15,6 +18,7 @@ import { ProductDialogComponent } from '../product-dialog/product-dialog.compone
     ProductFormComponent,
     HeaderComponent,
     ProductListComponent,
+    MatIconModule,
   ],
   templateUrl: './product-page.component.html',
   styleUrl: './product-page.component.scss',
@@ -25,31 +29,33 @@ export class ProductPageComponent implements OnInit {
     private productService: ProductService,
     public dialog: MatDialog
   ) {}
-
   ngOnInit(): void {
     this.index('');
   }
   index(event: any) {
     this.productService.index().subscribe((resp) => {
       this.productItems = resp;
-      console.log('chegou paapi', resp);
     });
   }
-  get(event: any) {
-    this.productService.get(1).subscribe((resp) => {});
-  }
-  save(event: any) {
-    this.productService.save().subscribe((resp) => {});
-  }
-  update(event: any) {
-    this.productService.update().subscribe((resp) => {});
-  }
-  delete(event: any) {
-    this.productService.delete(1).subscribe((resp) => {});
-  }
-
   selectedProductDialog(event: any) {
     const product = this.productItems.find((element) => element.id == event);
-    this.dialog.open(ProductDialogComponent, { data: product });
+    const dialogRef = this.dialog.open(ProductDialogComponent, {
+      data: product,
+    });
+    dialogRef.afterClosed().subscribe(() => {
+      this.index('');
+    });
+  }
+  createProduct() {
+    const dialogRef = this.dialog.open(ProductDialogCreateComponent);
+    dialogRef.afterClosed().subscribe(() => {
+      this.index('');
+    });
+  }
+  findProduct() {
+    const dialogRef = this.dialog.open(ProductDialogFindComponent);
+    dialogRef.afterClosed().subscribe(() => {
+      this.index('');
+    });
   }
 }

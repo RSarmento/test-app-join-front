@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CategoryService } from '../../shared/services/category.services';
+import { Category } from '../../shared/models/category.interface';
 
 @Component({
   selector: 'app-category-page',
@@ -13,16 +14,16 @@ export class CategoryPageComponent {
   index(event: any) {
     this.categoryService.index().subscribe((resp) => {});
   }
-  get(event: any) {
-    this.categoryService.get().subscribe((resp) => {});
+  get(id: number) {
+    this.categoryService.get(id).subscribe((resp) => {});
   }
   save(event: any) {
     this.categoryService.save().subscribe((resp) => {});
   }
-  update(event: any) {
-    this.categoryService.update().subscribe((resp) => {});
+  update(category: Category) {
+    this.categoryService.update(category).subscribe((resp) => {});
   }
-  delete(event: any) {
-    this.categoryService.delete().subscribe((resp) => {});
+  delete(id: number) {
+    this.categoryService.delete(id).subscribe((resp) => {});
   }
 }

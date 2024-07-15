@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
@@ -5,9 +6,16 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root',
 })
 export class LoginService {
-  constructor() {}
+  url = 'http://localhost:8080/login';
+
+  constructor(private httpClient: HttpClient) {}
 
   login(username: string, pass: string): Observable<any> {
-    return of('deu bom');
+    const loginObj = {
+      username: username,
+      password: pass,
+    };
+    //return this.httpClient.post(this.url, loginObj);
+    return of('');
   }
 }
